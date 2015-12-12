@@ -1,7 +1,7 @@
 {
   "name": "rc-clearable-input",
   "version": "1.0.2",
-  "description": "A text input field with an x button that clears the field.",
+  "description": "A text input field with an x button that clears the field for React.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
