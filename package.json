@@ -1,6 +1,6 @@
 {
   "name": "rc-clearable-input",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A text input field with an x button that clears the field for React.",
   "main": "index.js",
   "scripts": {
