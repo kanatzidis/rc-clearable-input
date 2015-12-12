@@ -10,6 +10,9 @@ var ClearableInput = React.createClass({
   componentDidMount() {
     this.onUpdate = this.props.onUpdate || function(){};
   },
+  getValue() {
+    return this.state.value;
+  },
   focus() {
     this.clearableInput.focus();
   },
