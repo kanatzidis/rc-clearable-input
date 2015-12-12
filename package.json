@@ -1,0 +1,32 @@
+{
+  "name": "rc-clearable-input",
+  "version": "1.0.0",
+  "description": "A text input field with an x button that clears the field.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kanatzidis/rc-clearable-input.git"
+  },
+  "keywords": [
+    "react",
+    "clearable",
+    "input",
+    "text",
+    "field"
+  ],
+  "author": "Gregori Kanatzidis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kanatzidis/rc-clearable-input/issues"
+  },
+  "homepage": "https://github.com/kanatzidis/rc-clearable-input#readme",
+  "devDependencies": {
+    "babel-preset-react": "^6.3.13"
+  },
+  "dependencies": {
+    "react": "^0.14.3"
+  }
+}
