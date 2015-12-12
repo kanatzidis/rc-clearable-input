@@ -9,15 +9,16 @@ var ClearableInput = React.createClass({
   },
   componentDidMount() {
     this.onUpdate = this.props.onUpdate || function(){};
+    this.style = ".clearable{\n background: #fff url(data:image/gif;base64,R0lGODlhBwAHAIAAAP///5KSkiH5BAAAAAAALAAAAAAHAAcAAAIMTICmsGrIXnLxuDMLADs=) no-repeat right -10px center;\n border: 1px solid #999;\n padding: 3px 18px 3px 4px; /* Use the same right padding (18) in jQ! */\n border-radius: 3px;\n color: #4f4f4f;\n line-height:normal;\n transition: background 0.4s;\n }\n .clearable.x  { background-position: right 5px center; }\n .clearable.onX{ cursor: pointer; }\n .clearable::-ms-clear {display: none; width:0; height:0;}\n";
   },
   getValue() {
     return this.state.value;
   },
   focus() {
-    this.clearableInput.focus();
+    return this.clearableInput.focus();
   },
   blur() {
-    this.clearableInput.blur();
+    return this.clearableInput.blur();
   },
   handleChange(e) {
     this.setState({value: e.target.value});
@@ -42,17 +43,20 @@ var ClearableInput = React.createClass({
   },
   render() {
     return (
-      <input type="text"
-             placeholder={this.props.placeholder || ''}
-             className={(this.state.value?'clearable x':'clearable') + (this.state.onX?' onX':'')}
-             onChange={this.handleChange}
-             onMouseMove={this.onMouseMove}
-             onTouchStart={this.onClick}
-             onClick={this.onClick}
-             onKeyUp={this.onKeyUp}
-             value={this.state.value}
-             ref={(ref) => this.clearableInput = ref}
-             style={this.props.style || {}} />
+      <span>
+        <style>{this.style}</style>
+        <input type="text"
+               placeholder={this.props.placeholder || ''}
+               className={(this.state.value?'clearable x':'clearable') + (this.state.onX?' onX':'')}
+               onChange={this.handleChange}
+               onMouseMove={this.onMouseMove}
+               onTouchStart={this.onClick}
+               onClick={this.onClick}
+               onKeyUp={this.onKeyUp}
+               value={this.state.value}
+               ref={(ref) => this.clearableInput = ref}
+               style={this.props.style || {}} />
+      </span>
     );
   }
 });
