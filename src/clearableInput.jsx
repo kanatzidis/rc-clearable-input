@@ -10,12 +10,10 @@ var ClearableInput = React.createClass({
   focus() {
     this.clearableInput.focus();
   },
-  getValue() {
-    return this.state.value;
-  },
   handleChange(e) {
+    var onUpdate = this.props.onUpdate || function(){};
     this.setState({value: e.target.value});
-    this.props.onUpdate(e.target.value);
+    onUpdate(e.target.value);
   },
   onKeyUp(e) {
     if(e.keyCode == 27 || e.keyCode == 13) {
@@ -24,9 +22,11 @@ var ClearableInput = React.createClass({
   },
   onClick(e) {
     if(!this.state.onX) return;
+    var onUpdate = this.props.onUpdate || function(){};
 
     e.preventDefault();
-    this.setState({ searchValue: '', onX: false });
+    this.setState({ value: '', onX: false });
+    onUpdate('');
   },
   onMouseMove(e) {
     if(!this.state.value) return;
@@ -39,8 +39,8 @@ var ClearableInput = React.createClass({
              className={(this.state.value?'clearable x':'clearable') + (this.state.onX?' onX':'')}
              onChange={this.handleChange}
              onMouseMove={this.onMouseMove}
-             onClick={this.onClick}
              onTouchStart={this.onClick}
+             onClick={this.onClick}
              onKeyUp={this.onKeyUp}
              value={this.state.value}
              ref={(ref) => this.clearableInput = ref}

@@ -1,0 +1,1 @@
+babel --presets react --watch src/clearableInput.jsx -o lib/clearableInput.js
